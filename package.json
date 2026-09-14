@@ -1,0 +1,41 @@
+{
+  "name": "shpbl-counterfactual-exposure-planner",
+  "version": "1.0.0",
+  "description": "A deterministic what-if engine for exposure data: clones a sealed exposure graph, applies bounded interventions, recomputes weighted risk and reachable attack surface, then ranks the resulting futures and marks the Pareto-efficient ones before production changes.",
+  "license": "MIT",
+  "author": "Kenneth E. Sweet Jr. (https://shpbl.com)",
+  "homepage": "https://shpbl.com/tenable-submissions",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SweetKenneth/shpbl-counterfactual-exposure-planner.git"
+  },
+  "type": "module",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test dist/tests/*.test.js",
+    "start": "node dist/src/mcp-server.js",
+    "example": "node dist/examples/worked-example.js",
+    "hammer": "node dist/scripts/hammer.js",
+    "security": "node scripts/security-scan.mjs",
+    "check": "npm run build && npm run typecheck && npm test && npm run hammer && npm run security && npm run example"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "5.6.3"
+  },
+  "keywords": [
+    "exposure-management",
+    "risk-scoring",
+    "attack-surface",
+    "prioritization",
+    "deterministic",
+    "provenance",
+    "mcp"
+  ]
+}

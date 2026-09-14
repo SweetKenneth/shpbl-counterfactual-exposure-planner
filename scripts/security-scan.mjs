@@ -1,0 +1,3 @@
+import fs from "node:fs"; import path from "node:path"; import { fileURLToPath } from "node:url";
+const root=fileURLToPath(new URL("../src/",import.meta.url)); const bad=[/\bfetch\s*\(/,/node:https?/,/node:net/,/node:child_process/,/\b(exec|spawn|fork)\s*\(/,/node:fs/];
+let count=0;function walk(p){for(const e of fs.readdirSync(p,{withFileTypes:true})){const f=path.join(p,e.name);if(e.isDirectory())walk(f);else if(f.endsWith(".ts")){count++;const t=fs.readFileSync(f,"utf8");for(const re of bad)if(re.test(t))throw new Error(`forbidden ${re} in ${f}`);}}}walk(root);console.log(`security scan OK — ${count} runtime source files, 0 forbidden egress/process/filesystem symbols`);

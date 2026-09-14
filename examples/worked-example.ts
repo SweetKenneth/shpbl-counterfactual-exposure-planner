@@ -1,0 +1,3 @@
+import { CounterfactualExposurePlanner } from "../src/planner.js";
+const graph={assets:[{id:"gateway",criticality:8,internetExposed:true,tags:["prod"]},{id:"payments",criticality:10,internetExposed:false,tags:["crown"]}],findings:[{id:"CVE-A",assetId:"gateway",severity:9,exploitability:.9,status:"open" as const},{id:"CVE-B",assetId:"payments",severity:8,exploitability:.6,status:"open" as const}],edges:[{from:"gateway",to:"payments"}]};
+const p=new CounterfactualExposurePlanner(graph); console.log(JSON.stringify(p.rank([{id:"patch-gateway",interventions:[{kind:"PATCH_FINDING",findingId:"CVE-A"}]},{id:"isolate-payments",interventions:[{kind:"ISOLATE_ASSET",assetId:"payments"}]},{id:"do-nothing",interventions:[]}]),null,2));

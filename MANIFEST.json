@@ -1,0 +1,16 @@
+{
+  "artifact": "Counterfactual Exposure Planner",
+  "repository": "https://github.com/SweetKenneth/shpbl-counterfactual-exposure-planner",
+  "version": "1.0.0",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 Kenneth E. Sweet Jr.",
+  "file_count": 24,
+  "checksums_sha256_root": "173a75e89b9ae6f4429e7b20d619ddb6c0f2748c43dd1e5cd096741633ba7990",
+  "verification": {
+    "tests_passed": 25,
+    "tests_failed": 0,
+    "hammer": "{\"hammer\":\"PASS\",\"cases\":30000,\"checks\":120000,\"seed\":1550056058}",
+    "security_scan": "security scan OK — 8 runtime source files, 0 forbidden egress/process/filesystem symbols",
+    "runtime_dependencies": 0
+  }
+}
